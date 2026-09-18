@@ -35,7 +35,7 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
           echo "Tag a publicar: $TAG"
 
-      - name: Compilar documento con LuaLaTeX (Verificación de compilación)
+      - name: Compilar documento con LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
