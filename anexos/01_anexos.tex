@@ -1,0 +1,45 @@
+% =========================================================================
+% anexos/01_anexos.tex
+% Sección de Anexos del Informe
+% =========================================================================
+
+\subsection{Especificación Técnica y Diccionario de Datos}
+\label{anexo:diccionario_datos}
+
+En este anexo se pueden incluir tablas técnicas extensas, diagramas de base de datos o especificaciones de interfaces que por su extensión no deben interrumpir la lectura del cuerpo principal.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Estructura representativa de la entidad principal de datos.}
+  \label{tab:anexo_entidad_datos}
+  \begin{tabularx}{\textwidth}{llLX}
+    \toprule
+    \textbf{Campo} & \textbf{Tipo} & \textbf{Restricción} & \textbf{Descripción} \\
+    \midrule
+    \texttt{id} & \texttt{UUID} & Primary Key & Identificador único inmutable del registro. \\
+    \texttt{codigo} & \texttt{VARCHAR(20)} & Unique, Not Null & Código administrativo institucional. \\
+    \texttt{estado} & \texttt{VARCHAR(15)} & Not Null & Estado operativo (Activo, Pendiente, Inactivo). \\
+    \texttt{fecha\_creacion} & \texttt{TIMESTAMP} & Default NOW() & Registro cronológico de auditoría. \\
+    \bottomrule
+  \end{tabularx}
+  \fuente{Elaboración propia.}
+\end{table}
+
+\subsection{Guía de Despliegue y Scripts de Automatización}
+\label{anexo:scripts_despliegue}
+
+En este anexo se documentan los pasos o fragmentos de código utilizados para el aprovisionamiento de entornos:
+
+\begin{lstlisting}[language=bash, caption={Script de automatización de pruebas y compilación del proyecto.}, label={lst:script_automatizacion}]
+#!/usr/bin/env bash
+# Script para compilación y verificación automatizada
+set -e
+
+echo "Iniciando pruebas unitarias..."
+pytest --cov=src tests/
+
+echo "Compilando contenedor de la aplicación..."
+docker build -t empresa/sistema-gestion:latest .
+
+echo "Despliegue completado con éxito."
+\end{lstlisting}

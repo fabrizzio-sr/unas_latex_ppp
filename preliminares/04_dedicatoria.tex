@@ -1,0 +1,19 @@
+% =========================================================================
+% preliminares/04_dedicatoria.tex
+% Página de Dedicatoria (Opcional)
+% =========================================================================
+\ifbool{mostrarDedicatoria}{%
+  \clearpage
+  \thispagestyle{empty}
+  \vspace*{4cm}
+  \begin{flushright}
+    {\fontsize{12pt}{14pt}\selectfont\bfseries DEDICATORIA} \\[0.5cm]
+    \parbox{0.65\textwidth}{%
+      \raggedleft\itshape
+      A mis padres y familiares, por su apoyo constante, sacrificio y motivación incondicional a lo largo de toda mi formación universitaria y personal.\\[0.3cm]
+      A mis docentes y mentores del área técnica, por compartir sus conocimientos y orientarme durante el desarrollo de mis prácticas preprofesionales.
+    }
+  \end{flushright}
+  \vfill
+  \clearpage
+}{}

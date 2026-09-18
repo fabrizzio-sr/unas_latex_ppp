@@ -1,0 +1,20 @@
+% =========================================================================
+% preliminares/05_agradecimientos.tex
+% Página de Agradecimientos (Opcional)
+% =========================================================================
+\ifbool{mostrarAgradecimientos}{%
+  \clearpage
+  \thispagestyle{empty}
+  \vspace*{4cm}
+  \begin{flushright}
+    {\fontsize{12pt}{14pt}\selectfont\bfseries AGRADECIMIENTOS} \\[0.5cm]
+    \parbox{0.65\textwidth}{%
+      \raggedleft\itshape
+      A la Universidad Nacional Agraria de la Selva, por brindarme la formación profesional e integral en las aulas de estudio.\\[0.3cm]
+      A la empresa receptora de prácticas y al equipo técnico del área, por abrirme sus puertas y otorgarme la confianza para ejecutar las actividades asignadas.\\[0.3cm]
+      A mi asesor de prácticas, por sus oportunas revisiones y recomendaciones metodológicas.
+    }
+  \end{flushright}
+  \vfill
+  \clearpage
+}{}

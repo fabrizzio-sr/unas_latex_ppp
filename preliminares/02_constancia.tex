@@ -1,0 +1,35 @@
+% =========================================================================
+% preliminares/02_constancia.tex
+% Certificado / Constancia de Prácticas Emitida por la Empresa
+% =========================================================================
+\ifbool{mostrarConstancia}{%
+    \clearpage
+    \thispagestyle{empty}
+    \IfFileExists{assets/documentos/constancia_practicas.pdf}{%
+        \includepdf[pages=-]{assets/documentos/constancia_practicas.pdf}%
+    }{%
+        \IfFileExists{assets/documentos/constancia_practicas.png}{%
+            \vspace*{\fill}%
+            \begin{center}%
+                \makebox[\textwidth][c]{\includegraphics[width=0.95\textwidth]{assets/documentos/constancia_practicas.png}}%
+            \end{center}%
+            \vspace*{\fill}%
+        }{%
+            \vspace*{5cm}%
+            \begin{center}%
+                \fbox{%
+                    \parbox{0.85\textwidth}{%
+                        \centering\vspace{1cm}%
+                        \textbf{\large CONSTANCIA / CERTIFICADO DE PRÁCTICAS}\\[0.5cm]%
+                        \textit{Coloque el documento emitido por la empresa o institución en:}\\[0.3cm]%
+                        \texttt{assets/documentos/constancia\_practicas.pdf}\\[0.2cm]%
+                        o en formato imagen \texttt{.png / .jpg}.%
+                        \vspace{1cm}%
+                    }%
+                }%
+            \end{center}%
+            \vfill%
+        }%
+    }%
+    \clearpage
+}{}

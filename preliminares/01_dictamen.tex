@@ -1,0 +1,35 @@
+% =========================================================================
+% preliminares/01_dictamen.tex
+% Dictamen de Aprobación del Docente Asesor
+% =========================================================================
+\ifbool{mostrarDictamen}{%
+  \clearpage
+  \thispagestyle{empty}
+  \IfFileExists{assets/documentos/dictamen_asesor.pdf}{%
+    \includepdf[pages=-]{assets/documentos/dictamen_asesor.pdf}%
+  }{%
+    \IfFileExists{assets/documentos/dictamen_asesor.png}{%
+      \vspace*{\fill}%
+      \begin{center}%
+        \makebox[\textwidth][c]{\includegraphics[width=0.95\textwidth]{assets/documentos/dictamen_asesor.png}}%
+      \end{center}%
+      \vspace*{\fill}%
+    }{%
+      \vspace*{5cm}%
+      \begin{center}%
+        \fbox{%
+          \parbox{0.85\textwidth}{%
+            \centering\vspace{1cm}%
+            \textbf{\large DICTAMEN DEL DOCENTE ASESOR}\\[0.5cm]%
+            \textit{Coloque el archivo escaneado o digital del dictamen firmado en:}\\[0.3cm]%
+            \texttt{assets/documentos/dictamen\_asesor.pdf}\\[0.2cm]%
+            o en formato imagen \texttt{.png / .jpg}.%
+            \vspace{1cm}%
+          }%
+        }%
+      \end{center}%
+      \vfill%
+    }%
+  }%
+  \clearpage
+}{}

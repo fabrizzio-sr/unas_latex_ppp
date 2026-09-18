@@ -1,0 +1,38 @@
+% =========================================================================
+% config/opciones.tex
+% Configuración de Visibilidad y Banderas Booleanas del Documento
+% =========================================================================
+% Active (true) o desactive (false) los componentes según la etapa de su informe:
+% - Durante elaboración/revisión: mantener mostrarActa en false.
+% - Tras la sustentación final: activar mostrarActa y mostrarQR si corresponde.
+
+% Aviso de código QR institucional (se incluye tras levantamiento de observaciones)
+\newbool{mostrarQR}
+\setbool{mostrarQR}{false}
+
+% Dictamen favorable del asesor docente
+\newbool{mostrarDictamen}
+\setbool{mostrarDictamen}{true}
+
+% Certificado o constancia de prácticas emitida por la empresa
+\newbool{mostrarConstancia}
+\setbool{mostrarConstancia}{true}
+
+% Acta de exposición y sustentación ante el jurado calificador
+\newbool{mostrarActa}
+\setbool{mostrarActa}{false}
+
+% Página de Dedicatoria (opcional según el estudiante)
+\newbool{mostrarDedicatoria}
+\setbool{mostrarDedicatoria}{true}
+
+% Página de Agradecimientos (opcional según el estudiante)
+\newbool{mostrarAgradecimientos}
+\setbool{mostrarAgradecimientos}{true}
+
+% Generación de Índices Auxiliares
+\newbool{mostrarIndiceTablas}
+\setbool{mostrarIndiceTablas}{true}
+
+\newbool{mostrarIndiceFiguras}
+\setbool{mostrarIndiceFiguras}{true}

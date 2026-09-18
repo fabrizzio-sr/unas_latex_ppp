@@ -1,0 +1,49 @@
+% !TEX program = lualatex
+% !BIB program = bibtex
+% =========================================================================
+% main.tex
+% Plantilla de Informe de Prácticas Pre Profesionales (PPP)
+% Universidad Nacional Agraria de la Selva (UNAS)
+% Motor Tipográfico Exclusivo: LuaLaTeX
+% =========================================================================
+\documentclass{unas-ppp}
+
+% 1. Cargar Metadatos del Documento y Opciones de Visibilidad
+\input{config/metadata}
+\input{config/opciones}
+
+\begin{document}
+
+% 2. Portada Reglamentaria UNAS
+\makecaratula
+
+% 3. Secciones Preliminares (Modulares y Condicionales)
+\iniciarpreliminares
+\input{preliminares/00_qr_aviso}
+\input{preliminares/01_dictamen}
+\input{preliminares/02_constancia}
+\input{preliminares/03_acta}
+\input{preliminares/04_dedicatoria}
+\input{preliminares/05_agradecimientos}
+\input{preliminares/06_resumen}
+
+% 4. Índices Automáticos (Contenido, Tablas y Figuras)
+\makepreliminares
+
+% 5. Cuerpo del Informe (Inicia numeración arábiga en página 1)
+\iniciarcuerpo
+\input{capitulos/01_aspectos_generales}
+\input{capitulos/02_marco_teorico}
+\input{capitulos/03_actividades_realizadas}
+\input{capitulos/04_conclusiones_recomendaciones}
+
+% 6. Referencias Bibliográficas (Normas APA)
+\clearpage
+\bibliographystyle{apalike}
+\bibliography{bib/referencias}
+
+% 7. Anexos del Documento
+\iniciaranexos
+\input{anexos/01_anexos}
+
+\end{document}

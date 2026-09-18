@@ -1,0 +1,35 @@
+% =========================================================================
+% preliminares/03_acta.tex
+% Acta de Exposición y Sustentación
+% =========================================================================
+\ifbool{mostrarActa}{%
+  \clearpage
+  \thispagestyle{empty}
+  \IfFileExists{assets/documentos/acta_sustentacion.pdf}{%
+    \includepdf[pages=-]{assets/documentos/acta_sustentacion.pdf}%
+  }{%
+    \IfFileExists{assets/documentos/acta_sustentacion.png}{%
+      \vspace*{\fill}%
+      \begin{center}%
+        \makebox[\textwidth][c]{\includegraphics[width=0.95\textwidth]{assets/documentos/acta_sustentacion.png}}%
+      \end{center}%
+      \vspace*{\fill}%
+    }{%
+      \vspace*{5cm}%
+      \begin{center}%
+        \fbox{%
+          \parbox{0.85\textwidth}{%
+            \centering\vspace{1cm}%
+            \textbf{\large ACTA DE EXPOSICIÓN Y SUSTENTACIÓN}\\[0.5cm]%
+            \textit{Coloque el acta firmada por el jurado evaluador en:}\\[0.3cm]%
+            \texttt{assets/documentos/acta\_sustentacion.pdf}\\[0.2cm]%
+            o en formato imagen \texttt{.png / .jpg}.%
+            \vspace{1cm}%
+          }%
+        }%
+      \end{center}%
+      \vfill%
+    }%
+  }%
+  \clearpage
+}{}
