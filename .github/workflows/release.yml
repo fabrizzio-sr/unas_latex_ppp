@@ -35,28 +35,17 @@ jobs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
           echo "Tag a publicar: $TAG"
 
-      - name: Compilar documento con LuaLaTeX
+      - name: Compilar documento con LuaLaTeX (Verificación de compilación)
         uses: xu-cheng/latex-action@v4
         with:
           root_file: main.tex
           latexmk_use_lualatex: true
 
-      - name: Preparar artefactos del Release
+      - name: Preparar plantilla ZIP del Release
         run: |
           TAG="${{ steps.vars.outputs.tag }}"
 
-          # 1. Copiar y estandarizar nombre del PDF compilado
-          if [ -f "build/main.pdf" ]; then
-            cp "build/main.pdf" "informe_ppp.pdf"
-          elif [ -f "main.pdf" ]; then
-            cp "main.pdf" "informe_ppp.pdf"
-          else
-            echo "Error: No se encontró el PDF compilado."
-            exit 1
-          fi
-          cp "informe_ppp.pdf" "informe_ppp_${TAG}.pdf"
-
-          # 2. Empaquetar plantilla limpia en archivo ZIP para los usuarios
+          # Empaquetar plantilla limpia en archivo ZIP para los usuarios
           zip -r "unas_latex_ppp_plantilla_${TAG}.zip" . \
             -x "*.git*" \
             -x "*.github*" \
@@ -64,10 +53,16 @@ jobs:
             -x "*.pdf" \
             -x "*.synctex.gz" \
             -x "*.log" \
-            -x "*.aux"
+            -x "*.aux" \
+            -x "*.bbl" \
+            -x "*.blg" \
+            -x "*.toc" \
+            -x "*.out" \
+            -x "*.fls" \
+            -x "*.fdb_latexmk"
 
-          echo "Artefactos preparados con éxito:"
-          ls -lh informe_ppp.pdf "informe_ppp_${TAG}.pdf" "unas_latex_ppp_plantilla_${TAG}.zip"
+          echo "Artefacto preparado con éxito:"
+          ls -lh "unas_latex_ppp_plantilla_${TAG}.zip"
 
       - name: Publicar GitHub Release
         uses: softprops/action-gh-release@v2
@@ -78,6 +73,4 @@ jobs:
           prerelease: false
           generate_release_notes: true
           files: |
-            informe_ppp.pdf
-            informe_ppp_${{ steps.vars.outputs.tag }}.pdf
             unas_latex_ppp_plantilla_${{ steps.vars.outputs.tag }}.zip
