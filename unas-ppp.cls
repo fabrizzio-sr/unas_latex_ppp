@@ -36,7 +36,17 @@
 
 % --- TIPOGRAFÍA Y LENGUAJE ---
 \RequirePackage{fontspec}
-\setmainfont{Times New Roman}
+\IfFontExistsTF{Times New Roman}{%
+    \setmainfont{Times New Roman}%
+}{%
+    \IfFontExistsTF{TeX Gyre Termes}{%
+        \setmainfont{TeX Gyre Termes}%
+    }{%
+        \IfFontExistsTF{Liberation Serif}{%
+            \setmainfont{Liberation Serif}%
+        }{}%
+    }%
+}
 
 \RequirePackage[bidi=basic, provide=*]{babel}
 \babelprovide[import, main, onchar=ids fonts]{spanish}
@@ -80,19 +90,19 @@
 % Sub-subsecciones: 12pt, Negrita, Cursiva, Izquierda
 \RequirePackage{titlesec}
 \titleformat{\section}%
-{\fontspec{Times New Roman}\fontsize{14pt}{16pt}\selectfont\bfseries\centering}%
+{\normalfont\fontsize{14pt}{16pt}\selectfont\bfseries\centering}%
 {\thesection.}%
 {1em}%
 {\MakeUppercase}
 
 \titleformat{\subsection}%
-{\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont\bfseries}%
+{\normalfont\fontsize{12pt}{14pt}\selectfont\bfseries}%
 {\thesubsection.}%
 {1em}%
 {}
 
 \titleformat{\subsubsection}%
-{\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont\bfseries\itshape}%
+{\normalfont\fontsize{12pt}{14pt}\selectfont\bfseries\itshape}%
 {\thesubsubsection.}%
 {1em}%
 {}

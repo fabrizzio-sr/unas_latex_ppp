@@ -1,6 +1,10 @@
 # Plantilla LaTeX para Informes de Prácticas Pre Profesionales (PPP) - UNAS
 
+[![CI](https://github.com/fabrzzo/unas_latex_ppp/actions/workflows/ci.yml/badge.svg)](https://github.com/fabrzzo/unas_latex_ppp/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/fabrzzo/unas_latex_ppp?logo=github)](https://github.com/fabrzzo/unas_latex_ppp/releases/latest)
+
 Plantilla oficial, modular y desacoplada para la elaboración de Informes de Prácticas Pre Profesionales en la **Universidad Nacional Agraria de la Selva (UNAS)**, desarrollada bajo principios de ingeniería de software (**DRY** y **Separación de Responsabilidades**) con soporte exclusivo para el motor tipográfico moderno **LuaLaTeX**.
+
 
 ---
 

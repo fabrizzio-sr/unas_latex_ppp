@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Compilar Documento LaTeX (LuaLaTeX)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Compilar con LuaLaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          latexmk_use_lualatex: true
+
+      - name: Localizar y renombrar PDF generado
+        run: |
+          if [ -f "build/main.pdf" ]; then
+            cp "build/main.pdf" "informe_ppp.pdf"
+          elif [ -f "main.pdf" ]; then
+            cp "main.pdf" "informe_ppp.pdf"
+          else
+            echo "Error: No se encontró el PDF compilado."
+            exit 1
+          fi
+
+      - name: Subir artefacto de compilación (PDF)
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe_ppp_preview
+          path: informe_ppp.pdf
+          retention-days: 14

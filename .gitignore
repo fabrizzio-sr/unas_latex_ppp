@@ -31,3 +31,8 @@
 # Carpetas de construcción
 build/
 dist/
+
+# Archivos de salida generados localmente
+main.pdf
+informe_ppp_*.pdf
+!informe_ppp_20260918_065854.pdf
